@@ -1,0 +1,67 @@
+OOP- Practicum 1 
+// zad 1
+
+using namespace std;
+namespace MatrixNS
+{
+  int** Readarr( int n, int m)
+  {
+	  int** mtx = new int  *[n];
+	  for (size_t i = 0; i < n; i++)
+	  {
+		  mtx[i] = new int[m];
+		  for (size_t j = 0; j < m; j++)
+		  {
+			  cin >> mtx[i][j];
+		  }
+	  }
+	  return mtx;
+  }
+
+  int ** TransMatrix ( const int* const *arr, int n,int m)
+  {
+	  int** mtx = new int* [n];
+	  for (size_t i = 0; i < n; i++)
+	  {
+		  mtx[i] = new int[m];
+		  for (size_t j = 0; j < m; j++)
+		  {
+			  mtx[i][j] = arr[j][i];
+		  }
+	  }
+	  return mtx;
+  }
+  int** ReverseRows (int** mtx,int n, int m, int row1, int row2)
+  {
+	  
+	  for (size_t i = 0; i < m; i++)
+	  {
+		  int swap = mtx[row1][i];
+		  mtx[row1][i] = mtx[row2][i];
+		  mtx[row2][i] = swap;
+	  }
+  
+  }
+
+  void PrintMatrix(const int* const * mtx, int n, int m)
+  
+  {
+	  for (size_t i = 0; i < n; i++)
+	  {
+		  for (size_t j = 0; j < m; j++)
+		  {
+			  cout << mtx[i][j];
+		  }
+	  }
+  
+  }
+  void DeleteMtx(int** mtx, int n, int m)
+  {
+	  for (size_t i = 0; i < n; i++)
+	  {
+		  delete[] mtx[i];
+		  
+	  }
+	  delete[] mtx;
+  }
+}
