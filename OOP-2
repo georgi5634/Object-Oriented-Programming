@@ -1,0 +1,44 @@
+#include <iostream>
+#include <fstream>
+void ReadfromConsole( std::ofstream& Myfile)
+{
+    int a, b,  c;
+    std::cin >>  a >> b >> c;
+    Myfile << a + b + c << std::endl << a * b * c;
+    std::cout << (a + b + c) - (a * b * c);
+
+
+}
+namespace Constants
+{
+    const size_t PAIR_SIZE = 25;
+}
+struct Pair
+{
+    int a;
+    int b;
+};
+struct Relations
+{
+    Pair relations[Constants::PAIR_SIZE];
+
+};
+void  ReadfromConsole( const char* myfile )
+{
+    std::ofstream Myfile(myfile, std::ios::out);
+    if (!Myfile.is_open()) return;
+    
+    return ReadfromConsole(Myfile);
+
+}
+
+
+int main()
+{
+    
+    ReadfromConsole("result.txt");
+   
+    
+    
+   
+}
